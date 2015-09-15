@@ -8,9 +8,7 @@ RUN		rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # custom repositories & package manager
 RUN     curl -sL https://deb.nodesource.com/setup | bash -
-RUN		apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-RUN		echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.0 main" | tee /etc/apt/sources.list.d/mongodb-org-3.0.list
-RUN		curl https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | sh
+RUN		apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.0 main" | tee /etc/apt/sources.list.d/mongodb-org-3.0.list
 
 # update repositorires
 RUN     apt-get -y update
@@ -18,9 +16,7 @@ RUN     apt-get -y update
 # install mongodb
 RUN     apt-get -y install mongodb-org
 
-RUN     npm install -g mongodb
-RUN     npm install -g gulp
-RUN     npm install -g bower
+RUN     npm install -g mongodb; npm install -g gulp; npm install -g bower
 
 # create user 'mean'
 # default password = CA1dpLS/ynPS6
