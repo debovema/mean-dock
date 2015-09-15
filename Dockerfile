@@ -4,7 +4,7 @@ FROM	node:4.0.0-wheezy
 RUN		rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # prerequisites (sudo, curl, git...)
-#RUN     apt-get -y update && apt-get -y install sudo
+RUN     apt-get -y update && apt-get -y install sudo vi
 
 # custom repositories & package manager
 RUN     curl -sL https://deb.nodesource.com/setup | bash -
